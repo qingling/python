@@ -1,0 +1,129 @@
+习题 39: 字典, 可爱的字典
+
+程序:
+
+class Song(object):
+	def __init__(self, lyrics):
+		self.lyrics = lyrics
+	def sing_me_a_song(self):
+		for line in self.lyrics:
+			print line
+happy_bday = Song(["Happy birthday to you",
+				   "I don't want to get sued",
+				   "So I'll stop right there"])
+bulls_on_parade = Song(["They rally around the family",
+						"With pockets full of shells"])
+happy_bday.sing_me_a_song()
+bulls_on_parade.sing_me_a_song()
+
+加分习题
+1. 在 Python 文档中找到 dictionary (又被称作 dicts, dict)的相关的内容，学着对 dict 做更多的操作。
+2. 找出一些 dict 无法做到的事情。例如比较重要的一个就是 dict 的内容是无序的，你可以检查一下看看是否真是这样。
+3. 试着把 for-loop 执行到 dict 上面，然后试着在 for-loop 中使用 dict 的 items() 函数，
+看看会有什么样的结果。
+
+1.常见的dict操作: keys,根据key找value;len，这里的len和list中的len计算方法相同，都是遇见一个' , '算一个长度; items，就是看这个dict有几项，都打印出来;pop,用一个key作为参数，移除这个key和它的value，并打印出来它的value。
+
+2.dict这个数据类型，根本没有sort这个属性，你没法叫sort，或者没法sort dict类型的数据。
+
+3.
+
+>>> x = {'x':1,'y':2}
+>>> m = []
+>>> for i in x.items():
+	m.append(x)
+	print(m)
+
+	
+[{'x': 1, 'y': 2}]
+[{'x': 1, 'y': 2}, {'x': 1, 'y': 2}]
+
+
+
+习题 40: 模块、类、对象
+
+
+程序:
+
+class Song(object):
+	def __init__(self, lyrics):
+		self.lyrics = lyrics
+	def sing_me_a_song(self):
+		for line in self.lyrics:
+			print line
+			
+	def 
+happy_bday = Song(["Happy birthday to you",
+		   "I don't want to get sued",
+		   "So I'll stop right there"])
+bulls_on_parade = Song(["They rally around the family",
+			"With pockets full of shells"])
+
+happy_bday.sing_me_a_song()
+bulls_on_parade.sing_me_a_song()
+
+
+
+加分习题
+1. 使用这种方式写更多的歌进去，确定自己懂得了传入的歌词是一个字符串列表。
+2. 将歌词放到另一个的变量里边，然后再类里边使用这一个新定义的变量。
+3. 试着看能不能给它加些新功能，不知道怎么做也没关系，只要试着去做也行，弄坏了也没关系，
+反正它也不会疼。
+4. 在网上搜索一下“object oriented programming”（中文：面向对象编程），给自己洗洗脑。弄
+不懂也没关系，其实里边有一半的东西对我来说也是没有意义的。
+
+
+1 
+
+class Song(object):
+	def __init__(self, lyrics):
+		self.lyrics = lyrics
+	def sing_me_a_song(self):
+		for line in self.lyrics:
+			print line
+
+happy_bday = Song(["Happy birthday to you",
+		   "I don't want to get sued",
+		   "So I'll stop right there"])
+bulls_on_parade = Song(["They rally around the family",
+			"With pockets full of shells"])
+
+						
+birthday_songs = Song(["Happy birthday to you",
+			"happy birthday to you",
+			"happy birthday to you",
+			"happy birthday to you"])
+						
+happy_bday.sing_me_a_song()
+bulls_on_parade.sing_me_a_song()
+birthday_songs.sing_me_a_song()
+
+2
+第一题中新建的birthday_songs不就是新的变量吗？为什么还要新的变量？
+
+3
+这个我不知道加什么，我就又写了个calss
+
+class Person:
+   def __init__(self,name,sex,age):
+      self.name=name
+      self.sex=sex
+      self.age=age
+
+   def __str__(self):
+      return self.name+' '+self.sex+' '+str(self.age)
+
+   def changeName(self,name):
+      self.name=name
+
+   def changeAge(self):
+      self.age=self.age+1
+
+person1=Person('ya\'nan','F',12)
+person2=Person('qingling','M',22)
+print('Person1: '+str(person1))
+person1.changeAge()
+print('Person 1: '+str(person1))
+person1.changeName('Jane Brown')
+print('Person 1: '+str(person1))
+print(person2)	
