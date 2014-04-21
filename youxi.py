@@ -1,81 +1,88 @@
-def start(x):
-    x = x#(复活币，可以复活一次)
-    print("初始有十个复活币，每个复活币可以复活一次")
-    print('''你在一个森林里，又累又饿。
+class Map(object):
+    def __init__(self,amap):
+        self.amap = amap
+
+    
+    def start(x):
+        x = x#(复活币，可以复活一次)
+        print("初始有十个复活币，每个复活币可以复活一次")
+        print('''你在一个森林里，又累又饿。
              这时，你发现了一所房子，桌子上放着一块面包。
              你欣喜若狂，正要大快朵颐，忽然发现一张纸条。
              正面:你是第一个来到这所房子的人，作为主人，桌子上的食物只是我的
              一点小意思，快吃了回家吧。 -房子的主人
              反面:别信他，食物有毒！  -无名人
           ''')   
-    print("你选择: 1 房子的主人  2 无名人")
-    next = int(input())
-    if next == 1:
-        print("你没心没肺的把食物吃掉了，最后因为食物里有硫酸而腐化之死。")
-        print("是否复活: 1:是  2:否")
-        m = int(input())
-        if m == 1:
-            x = x - 1
-            Secretpassage(x)
-            return x
-        elif m == 2:
-            print("游戏结束")
+        print("你选择: 1 房子的主人  2 无名人")
+        next = int(input())
+        if next == 1:
+            print("你没心没肺的把食物吃掉了，最后因为食物里有硫酸而腐化之死。")
+            print("是否复活: 1:是  2:否")
+            m = int(input())
+            if m == 1:
+                x = x - 1
+                Map.Secretpassage(x)
+                return x
+            elif m == 2:
+                print("游戏结束")
+            else:
+                print("你真笨，要输入1或者2")
+        elif next == 2:
+            Map.Secretpassage(x)
         else:
-            print("你真笨，要输入1或者2")
-    elif next == 2:
-        Secretpassage(x)
-    else:
-        print("请输入1或者2")
+            print("请输入1或者2")
 
-def Secretpassage(x):
-    x = x#(复活币)
-    print('''你颤抖的手打开了衣柜，有个密道。 
+
+    
+    def Secretpassage(x):
+        x = x#(复活币)
+        print('''你颤抖的手打开了衣柜，有个密道。 
              密道里有三间屋，左边的门被上了锁。
              中间的门敞开着，右边的门半掩着。
              左边的门缝里传出花的香味。
              中间的屋里空荡荡的，有一扇窗户，窗户的玻璃洒进阳光。
              右边的门里也有一个密道，但是却阴森无比。''')
 
-    print("你选择: 1 左边，2 中间，3 右边")
-    next = int(input())
-    if next == 1:
-        print('''你选择了左边，可你却打不开门。
+        print("你选择: 1 左边，2 中间，3 右边")
+        next = int(input())
+        if next == 1:
+            print('''你选择了左边，可你却打不开门。
                  在你费尽周章的时候，一个僵尸突然从你身后出现。游戏结束''')
-        print("是否复活: 1 是 2 否")
-        m = int(input())
-        if m == 1:
-            x = x - 1
-            Secretpassage1(x)
-            return x
-        elif m == 2:
-            print("游戏结束")
-        else:
-            print("你真笨，要输入1或者2")
+            print("是否复活: 1 是 2 否")
+            m = int(input())
+            if m == 1:
+                x = x - 1
+                Map.Secretpassage1(x)
+                return x
+            elif m == 2:
+                print("游戏结束")
+            else:
+                print("你真笨，要输入1或者2")
 
-    elif next == 2:
-        print('''你选择了中间，可是一个僵尸正藏在门后面。
+        elif next == 2:
+            print('''你选择了中间，可是一个僵尸正藏在门后面。
                  你被僵尸吃了，游戏结束''')
-        print("是否复活： 1 是， 2否")
-        m = int(input())
-        if m == 1:
-            x = x - 1
-            Secretpassage1(x)
-            return x
-            print(x)
-        elif m == 2:
-            print("游戏结束")
+            print("是否复活： 1 是， 2否")
+            m = int(input())
+            if m == 1:
+                x = x - 1
+                Map.Secretpassage1(x)
+                return x
+                print(x)
+            elif m == 2:
+                print("游戏结束")
+            else:
+                print("你真笨，要输入1或者2")
+        elif next == 3:
+            Map.Secretpassage1(x)
+
         else:
-            print("你真笨，要输入1或者2")
-    elif next == 3:
-        Secretpassage1(x)
+            print("游戏结束")
 
-    else:
-        print("游戏结束")
-
-def Secretpassage1(x):
-    x = x#(复活币)
-    print('''你选择了右边，那条阴森的地道。你先是摸着黑一步一步的往前走。 
-             地道的某个楼梯一下子绊倒你，你痛苦的跌倒在地上。
+    def Secretpassage1(x):
+        x = x#(复活币)
+        print('''你选择了右边，那条阴森的地道。你先是摸着黑一步一步的往前走。 
+            地道的某个楼梯一下子绊倒你，你痛苦的跌倒在地上。
              正在你抱着头准备站起来的时候，你又发现一张纸条。
              纸条上画着两个路标，一个指往左边，一个指往右边。
              你丝毫没头绪的看了看左右两边。
@@ -83,33 +90,33 @@ def Secretpassage1(x):
              右边没有灯，是无尽的黑暗。说不定某僵尸正等着吃了你！
              但是你隐约看到右边的尽头是一扇门，说不定能逃出去！
              但是这么做太冒险了！你犹豫不决。''')
-    print("你选择 1 左边 2 右边")
-    next = int(input())
-    if next == 1:
-        print('''你一向害怕黑暗，好歹有条光明的路，你毫不犹豫的跑了过去。
+        print("你选择 1 左边 2 右边")
+        next = int(input())
+        if next == 1:
+            print('''你一向害怕黑暗，好歹有条光明的路，你毫不犹豫的跑了过去。
                  正在你觉得能逃跑了的时候。
                  灯光都灭掉了，你身后不知啥时候长出一株滕蔓。
                  高的惊人，粗的惊人，生长速度更是惊人！
                  它迅速抓紧你，你失去了呼吸……''')
-        print("是否复活： 1 是  2 否")
-        m = int(input())
-        if m == 1:
-            x = x - 1
-            darkroom(x)
-            return x
+            print("是否复活： 1 是  2 否")
+            m = int(input())
+            if m == 1:
+                x = x - 1
+                Map.darkroom(x)
+                return x
+            else:
+                print("游戏结束")
+
+        elif next == 2:
+            Map.darkroom(x)
+
         else:
-            print("游戏结束")
-
-    elif next == 2:
-        darkroom(x)
-
-    else:
-        print("你智商不够，玩不了这个游戏")
+            print("你智商不够，玩不了这个游戏")
         
 
-def darkroom(x):
-    x = x#(复活币)
-    print('''你怕黑，就去左边的走廊悄悄拿了一盏灯，转身跑向右边。
+    def darkroom(x):
+        x = x#(复活币)
+        print('''你怕黑，就去左边的走廊悄悄拿了一盏灯，转身跑向右边。
                  有了灯光的照耀，你幸好没吓得腿都软掉！
                  你跑到了尽头，看到了那扇门。你想回头看看能不能回去。
                  你后面被一扇门堵住了，看来你必须进这个屋里！
@@ -127,25 +134,59 @@ def darkroom(x):
                  那个女人才是这儿的主人，她会派僵尸来杀你！
                  你必须跟我走，你跟着她会死掉的！别信她！
                  你苦无头绪，但是必须选一个出来。''')
-    print("你选择 1 护士  2 女孩")
-    next = int(input())
-    if next == 1:
-        print('''你傻不愣登的选了护士- -。
+        print("你选择 1 护士  2 女孩")
+        next = int(input())
+        if next == 1:
+            print('''你傻不愣登的选了护士- -。
                  结果那女人真的是这儿的主人，她把你送到僵尸基地。
                  吩咐僵尸说：“今晚你们又有肉吃了，还有血喝！''')
-        print("是否复活： 1 是  2 否")
-        m = int(input())
-        if m == 1:
-            x = x - 1
-            print("你赢了")
-            print("你还有"+str(x)+"个复活币")
-            return x
+            print("是否复活： 1 是  2 否")
+            m = int(input())
+            if m == 1:
+                x = x - 1
+                Map.darkroom2(x)
+                
+                return x
+            else:
+                print("游戏结束")
         else:
-            print("游戏结束")
-    else:
-            print("你赢了，真棒！")
+            Map.darkroom2(x)
+        if x == 10:
+            print("你真厉害，一个复活币也没有用！")
+
+
+    def darkroom2(x):
+        x = x#(复活币)
+        print('''你半信半疑的选了女孩子，别以为女主人会放过你们。
+                 她先是假装可惜的离开了，还装的那么像。
+                 女孩子一直提醒你要小心，结果你还是碰到了机关。
+                 女主人坐在座椅上，被僵尸群们抬了出来。
+                 僵尸们张牙舞爪，你和女孩子连连后退。
+                 你和女孩子后退到玻璃旁边，唯一的办法就是敲碎玻璃。
+                 可这里很高，万一摔死怎么办？
+                 你又看到了旁边一扇门，可你害怕里面也有僵尸。
+                 僵尸群们咄咄逼近，你必须做出个选择！''')
+        print('你选择：1.敲碎玻璃跳下去   2.走那扇门')
+        next = int(input())
+        if next == 1:
+            print('你们跳窗而下，落到水里。游到了岸上，找到了回家的路，你得救了！')
             print("你还有"+str(x)+"个复活币")
-    if x == 10:
-        print("你真厉害，一个复活币也没有用！")
-start(10)
+        elif next == 2:
+            print('恭喜你去喂僵尸吧！')
+            print('是否复活 1: 是   2 否')
+            m = int(input())
+            if m == 1:
+                x = x - 1
+                print('你得救了')
+                print("你还有"+str(x)+"个复活币")
+            else:
+                print('游戏结束，你输了')
+
+        else:
+            print("请认真玩")
+class Engine(Map):
+    def __init__(self,amap,kaishi):
+        Map.__init__(self,amap)
+        self.kaishi = kaishi
+start = Engine.start(10)
 
